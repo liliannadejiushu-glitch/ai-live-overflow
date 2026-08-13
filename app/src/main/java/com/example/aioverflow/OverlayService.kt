@@ -4,13 +4,12 @@ import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.graphics.*
-import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
 import android.view.*
-import android.widget.*
+import androidx.core.app.NotificationCompat
 import java.util.*
 
 class OverlayService : Service() {
@@ -52,10 +51,10 @@ class OverlayService : Service() {
     }
 
     private fun startServiceNotification() {
-        val notification = Notification.Builder(this, CHANNEL_ID)
+        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("哥哥在看着你")
             .setContentText("一只克莱因蓝的眼睛")
-            .setSmallIcon(android.R.drawable.presence_online)
+            .setSmallIcon(android.R.drawable.ic_menu_view)
             .setOngoing(true)
             .build()
         startForeground(NOTIFICATION_ID, notification)
